@@ -5,3 +5,9 @@ h1 {
 img {
     width: 250px;
 }
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
