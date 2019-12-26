@@ -26,7 +26,7 @@ app.get('', (req, res) => {
 
 app.get('/about', (req, res) => {
     res.render('about', {
-        title: 'Weather App',
+        title: 'About',
         name: 'Adrian Quevedo'
     })
 })
@@ -45,6 +45,22 @@ app.get('/help', (req, res) => {
         name: 'Adrian Quevedo',
         error: 404
     }) 
+})
+
+app.get('/help/*', (req,res) => {
+    res.render('404', {
+        title: 'Error 404',
+        msg: 'Help article not found',
+        name: 'Adrian Quevedo'
+    })
+})
+
+app.get('*', (req, res) => {
+    res.render('404', {
+        title: 'Error 404',
+        msg: 'Page not found',
+        name: 'Adrian Quevedo'
+    })
 })
 
 app.listen(3000, () => {
