@@ -9,10 +9,6 @@ const { MongoClient, ObjectID } = require('mongodb')
 const connectionURL = 'mongodb://127.0.0.1:27017'
 const databaseName = 'task-manager'
 
-const id = new ObjectID()
-console.log(id.id)
-console.log(id.getTimestamp())
-
 MongoClient.connect(connectionURL, { userNewUrlParser: true}, (error, client) => {
     if(error) {
         return console.log('Unable to connect to database!')
@@ -70,6 +66,70 @@ MongoClient.connect(connectionURL, { userNewUrlParser: true}, (error, client) =>
     //     console.log(result.ops)
     // })
 
+    // db.collection('users').findOne({_id: new ObjectID("5e138f16a2b722236c601872")}, (error, user) => {
+    //     if (error) {
+    //         return console.log('Unable to fetch')
+    //     }
+
+    //     console.log(user)
+    // })
+
+    // db.collection('users').find({age:28}).toArray((error, users)=>{
+    //     console.log(users)
+    // })
+
+    // db.collection('users').find({age:28}).count((error, count)=>{
+    //     console.log(count)
+    // })
+
+    // db.collection('tasks').findOne({_id: new ObjectID("5e13833882dade2994211f17")}, (error, tasks) => {
+    //     console.log(tasks)
+    // })
+
+    // db.collection('tasks').find({completed: false}).toArray((error, tasks) => {
+    //     console.log(tasks)
+    // })
+
+    // db.collection('users').updateOne({
+    //     _id:new ObjectID("5e1380298be6a046100232d1")},
+    //     {
+    //         $inc:{
+    //             age: 1
+    //         }
+    //     }).then((result) => {
+    //     console.log(result)
+    // }).catch((error) => {
+    //     console.log(error)
+    // })
+
+    // db.collection('tasks').updateMany({
+    //     completed: false
+    // },
+    // {
+    //     $set:{
+    //         completed: true
+    //     }
+    // }).then((result) => {
+    //     console.log(result.modifiedCount)
+    // }).catch((error) => {
+    //     console.log(error)
+    // })
+
+    // db.collection('users').deleteMany({
+    //     age:25
+    // }).then((result) => {
+    //     console.log(result)
+    // }).catch((error) => {
+    //     console.log(error)
+    // })
+
+    db.collection('tasks').deleteOne({
+        description: 'Sort'
+    }).then((result) => {
+        console.log(result.deletedCount)
+    }).catch((error) => {
+        console.log(error)
+    })
 
 
 })
