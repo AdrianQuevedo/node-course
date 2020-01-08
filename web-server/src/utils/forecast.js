@@ -8,9 +8,10 @@ const forecast = (latitude, longitude, callback) => {
         } else if(body.error) {
             callback('Unable to find location', undefined)
         } else {
+            console.log(body.daily.data[0])
             const temperature = body.currently.temperature
             const precipProbability = body.currently.precipProbability
-            const result = body.daily.data[0].summary+ 'It si currently '+temperature+' degrees out. there is a '+ precipProbability + '% chance of rain.'
+            const result = body.daily.data[0].summary+ 'It si currently '+temperature+' degrees out. there is a '+ precipProbability + '% chance of rain. The maximun Temparature for today is '+body.daily.data[0].temperatureMax+ ' and the minimun temperature is '+body.daily.data[0].temperatureMin
             callback(undefined, result)
         }
     })

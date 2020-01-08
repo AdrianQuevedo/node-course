@@ -32,22 +32,22 @@ MongoClient.connect(connectionURL, { userNewUrlParser: true}, (error, client) =>
     //     console.log(result.ops)
     // })
 
-    // db.collection('users').insertMany([
-    //     {
-    //         name: 'Cam',
-    //         age:25
-    //     },
-    //     {
-    //         name:'Ariel',
-    //         age: 25
-    //     }
-    // ], (error, result) => {
-    //     if(error){
-    //         return console.log('Unable to insert documents!')
-    //     }
+    db.collection('users').insertMany([
+        {
+            name: 'Cam',
+            age:25
+        },
+        {
+            name:'Ariel',
+            age: 25
+        }
+    ], (error, result) => {
+        if(error){
+            return console.log('Unable to insert documents!')
+        }
 
-    //     console.log(result.ops)
-    // })
+        console.log(result.ops)
+    })
 
     // db.collection('tasks').insertMany([
     //     {
